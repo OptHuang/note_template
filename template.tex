@@ -2,6 +2,9 @@
 %\documentclass[12pt,a4paper]{article}  % Use this line if this document will be released
 \usepackage{ifdraft}
 
+\newcommand{\bibfile}{ncpds.bib}
+\newcommand{\universalbib}{ref.bib}
+\ifdraft{\IfFileExists{\universalbib}{\renewcommand{\bibfile}{\universalbib}}{}}{}
 
 % Geometry
 %\voffset=-1.5cm \hoffset=-1.4cm \textwidth=16cm \textheight=22.0cm  % Luis' setting
@@ -88,35 +91,20 @@ urlcolor=darkblue}
 \algrenewcommand\alglinenumber[1]{\normalsize #1.}
 \newcommand*\Let[2]{\State #1 $=$ #2}
 
-
 % Theorem-like environments 
-\newtheorem{theorem}{Theorem}%[section]
-\newtheorem{acknowledgement}{Acknowledgement}%[section]
-\newtheorem{alg}{Algorithm}%[section]
-\newtheorem{axiom}{Axiom}%[section]
-\newtheorem{case}{Case}%[section]
-\newtheorem{claim}{Claim}%[section]
-\newtheorem{conclusion}{Conclusion}%[section]
-\newtheorem{condition}{Condition}%[section]
-\newtheorem{conjecture}{Conjecture}%[section]
-\newtheorem{corollary}{Corollary}%[section]
-\newtheorem{criterion}{Criterion}%[section]
-\newtheorem{exercise}{Exercise}%[section]
-\newtheorem{lemma}{Lemma}%[section]
-\newtheorem{notation}{Notation}%[section]
-\newtheorem{problem}{Problem}%[section]
-\newtheorem{proposition}{Proposition}%[section]
-\newtheorem{remark}{Remark}%[section]
-\newtheorem{solution}{Solution}%[section]
-\newtheorem{assumption}{Assumption}%[section]
-\newtheorem{summary}{Summary}%[section]
-\newtheorem{note}{Note}%[section]
-\newtheorem{doubt}{Doubt}%[section]
-\newtheorem{properties}{Properties}%[section]
-\newtheorem{example}{Example}%[section]
-\newtheorem{stronconv}{Strong Convergence}%[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{question}{Question}[section]
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}%[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
 % proof
 \usepackage{xpatch}
 \xpatchcmd{\proof}{\itshape}{\normalfont\proofnamefont}{}{}
@@ -250,6 +238,9 @@ urlcolor=darkblue}
 \newcommand{\gradp}{\nabla_{\!\sss{P_k}}}
 \newcommand{\lims}{\mathcal{L}}
 
+\usepackage{etoolbox}
+\newcommand{\psum}[1][]{S\ifblank{#1}{}{_{#1}}}
+
 % mathlcal font
 \DeclareFontFamily{U}{dutchcal}{\skewchar\font=45 }
 \DeclareFontShape{U}{dutchcal}{m}{n}{<-> s*[1.0] dutchcal-r}{}
@@ -292,6 +283,26 @@ urlcolor=darkblue}
 %\newcommand{\COMMENT}[1]{\textcolor{darkgreen}{(#1)}}
 %\newcommand{\REVISION}[1]{#1}
 %\newcommand{\REVISIONred}[1]{#1}
+
+% To-do notes in draft mode
+% Available commands:
+% - \fxnote[options]{<note>}
+% - \fxwarning[options]{<note>}
+% - \fxerror[options]{<note>}
+% - \fxfatal[options]{<note>}
+% Available targeted commands:
+% - \fxnote*[options]{<note>}{<text>}
+% - \fxwarning*[options]{<note>}{<text>}
+% - \fxerror*[options]{<note>}{<text>}
+% - \fxfatal*[options]{<note>}{<text>}
+\RequirePackage[author={}]{fixme}
+\fxsetup{marginface=\scriptsize\sffamily\color{gray}}
+
+% Add line numbers in draft mode
+\RequirePackage[mathlines]{lineno}
+\ifdraft{\linenumbers}{}
+\renewcommand{\linenumberfont}{\normalfont\scriptsize\sffamily\color{gray}}
+\setlength{\linenumbersep}{\marginparsep}
   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
