@@ -2,7 +2,7 @@
 %\documentclass[12pt,a4paper]{article}  % Use this line if this document will be released
 \usepackage{ifdraft}
 
-\newcommand{\bibfile}{ncpds.bib}
+\newcommand{\bibfile}{template.bib}
 \newcommand{\universalbib}{ref.bib}
 \ifdraft{\IfFileExists{\universalbib}{\renewcommand{\bibfile}{\universalbib}}{}}{}
 
@@ -27,7 +27,7 @@
 \usepackage{accents}
 \usepackage{xspace}
 \usepackage[en-US]{datetime2}
-
+\usepackage{bm}
 
 % Graph, tikz and pgf
 %\usepackage{subfigure}
@@ -255,7 +255,7 @@ urlcolor=darkblue}
 %\usepackage[scr=boondoxo]{mathalfa}
 \usepackage[scr=boondoxupr]{mathalfa}
 %\newcommand{\model}{\mathscr{h}}
-\newcommand{\model}{\tilde{f}}
+\newcommand{\model}{\widetilde{F}}
 \newcommand{\rmod}{F}
 
 \DeclareMathOperator{\cl}{cl}
