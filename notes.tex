@@ -2,7 +2,7 @@
 %\documentclass[12pt,a4paper]{article}  % Use this line if this document will be released
 \usepackage{ifdraft}
 
-\newcommand{\bibfile}{template.bib}
+\newcommand{\bibfile}{notes.bib}
 \newcommand{\universalbib}{ref.bib}
 \ifdraft{\IfFileExists{\universalbib}{\renewcommand{\bibfile}{\universalbib}}{}}{}
 
@@ -309,10 +309,12 @@ urlcolor=darkblue}
 \title{A Simple~\LaTeX~Template}
 \date{\DTMnow}
 \author{
-Cunxin Huang
-\thanks{
+Cunxin Huang\thanks{
 Department of Applied Mathematics, The Hong Kong Polytechnic University, 
-Hong Kong, China ({\tt huangcunxin@outlook.com}).
+Hong Kong, China ({\tt cun-xin.huang@connect.polyu.hk}).
+}\and Zaikun Zhang\thanks{
+Department of Applied Mathematics, The Hong Kong Polytechnic University, 
+Hong Kong, China ({\tt zaikun.zhang@polyu.edu.hk}).
 }
 }
 
